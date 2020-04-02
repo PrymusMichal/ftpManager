@@ -1,0 +1,45 @@
+﻿<Controls:MetroWindow x:Class="ftpManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ftpManager"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        mc:Ignorable="d"
+        
+        Title="ftpManager" Height="800" Width="1024">
+
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button Content="settings"/>
+            <Button>
+                <StackPanel Orientation="Horizontal">
+
+                </StackPanel>
+            </Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="289*"/>
+            <ColumnDefinition Width="406*"/>
+            <ColumnDefinition Width="321*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox HorizontalAlignment="Center" Height="26"  TextWrapping="Wrap" Text="ftp://192.168.0.157:2121" VerticalAlignment="Center" Width="206" Name="ftpServer" Grid.Column="1" RenderTransformOrigin="0.51,-2.577" Margin="100,133,100,610"   />
+        <TextBox HorizontalAlignment="Center" Height="112"  TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="345" Name="ftpResponse" Grid.Column="1" Margin="32,223,29,434" />
+        <Label Content="Response" HorizontalAlignment="Left" Margin="159,372,0,0" VerticalAlignment="Top" Grid.Column="1" Height="40" Width="76"/>
+        <ListBox HorizontalAlignment="Center" Height="452" VerticalAlignment="Top" Width="269" Name="directoryContent" Margin="0,50,0,0" BorderBrush="CornflowerBlue" BorderThickness="3" />
+        <Button Content="Delete" HorizontalAlignment="Center" Margin="0,570,0,0" VerticalAlignment="Top" Width="76" RenderTransformOrigin="0.283,-0.6" Name="DeleteItem" Click="DeleteItem_Click" Height="25"/>
+        <Button Content="Refresh" HorizontalAlignment="Center" Margin="0,530,0,0" VerticalAlignment="Top" Width="76" Name="Refresh" Click="Refresh_Click" Height="25"/>
+        <DataGrid Name="dropBox" ItemsSource="{Binding}" AutoGenerateColumns="True" Grid.Column="2" HorizontalAlignment="Left" Height="452" Margin="9,50,0,0" VerticalAlignment="Top" Width="302" AllowDrop="True" Drop="dropBox_Drop" DragEnter="dropBox_Enter" BorderBrush="CornflowerBlue" BorderThickness="3">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="File Name" Binding="{Binding fileName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="File Location" Binding="{Binding fileLocation}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Send Files" Grid.Column="2" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Width="152" Click="dropBoxUpload" Height="37" RenderTransformOrigin="0.516,-0.77" Margin="85,0,84,207" />
+
+
+
+    </Grid>
+</Controls:MetroWindow>
