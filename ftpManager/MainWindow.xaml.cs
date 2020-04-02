@@ -55,32 +55,6 @@ namespace ftpManager
             }
             directoryContent.ItemsSource = list;
         }
-        private void send_Click(object sender, RoutedEventArgs e)
-        {
-
-           /* 
-            string fileName = "test.txt";
-            string conent = sendContent.Text;
-            string host = ftpServer.Text+'/'+fileName;
-            Byte[] content = new UTF8Encoding(true).GetBytes("test");
-            using (FileStream fs=File.Create(fileName))
-            {
-                fs.Write(content, 0, content.Length);
-            }
-            FtpWebRequest request = (FtpWebRequest)WebRequest.Create(host);
-            request.Method = WebRequestMethods.Ftp.UploadFile;
-            request.ContentLength = conent.Length;
-            using (Stream requestStream=request.GetRequestStream())
-            {
-                requestStream.Write(content, 0, content.Length);
-            }
-
-            using (FtpWebResponse response=(FtpWebResponse)request.GetResponse())
-            {
-                ftpResponse.Text = $"Upload File complete, status {response.StatusDescription}";
-            }*/
-            refreshDirectoryContent();
-        }
 
         private void DeleteItem_Click(object sender, RoutedEventArgs e)
         {
